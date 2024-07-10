@@ -1,0 +1,48 @@
+@charset "UTF-8";
+
+:root {
+  --lime-300: #BEF264;
+  --lime-950: #1A2E05;
+  --zinc-50: #FAFAFA;
+  --zinc-100: #F4F4F5;
+  --zinc-400: #A1A1AA;
+  --zinc-500: #71717A;
+  --zinc-700: #3F3F46;
+  --zinc-800: #27272A;
+  --zinc-900: #18181B;
+  --zinc-950: #09090B;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  background-color: #000000;
+  color: var(--zinc-50);
+}
+
+main {
+  display: flex;
+  flex-flow: row nowrap;
+  padding: 40px 160px;
+}
+
+form {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+form img {
+  color: var(--zinc-400);
+}
+
+section#dataList, section#activities {
+    padding: 16px;
+}
+
+section#activityList p {
+    color: var(--zinc-500);
+}
