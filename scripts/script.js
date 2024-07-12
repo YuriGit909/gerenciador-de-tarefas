@@ -4,6 +4,7 @@ let date = document.querySelector('input#idDate').value
 let time = document.querySelector('input#idTime').value
 let button = document.querySelector('input#btn')
 let activityList = document.querySelector('section#activityList')
+let activityItem = []
 
 // FUNÇÃO PARA FORMATAR DATA PARA O FORMATO DD/MM/AAAA
 let dateFormatted = (data) => {
@@ -27,8 +28,28 @@ button.addEventListener('click', () => {
     date = document.querySelector('input#idDate').value
     time = document.querySelector('input#idTime').value
 
+    activityItem.push(activity)
+    activityItem.push(dateFormatted(date))
 
-    activityList.innerHTML = `${activity}, ${dateFormatted(date)} ${time}`
+    if (activity.length == 0) {
+        window.alert('Preencha o campo com uma atividade')
+    } else {
+        if(activityItem.indexOf(time) > -1 /* CONSERTAR */){
+            window.alert('O horário desta data já foi preenchido por outra atividade.')
+        } else {
+            activityList.innerHTML += `
+            <div id='itemList'>
+                <p>${activity}</p>
+                <div id='dateMobile'>
+                    <p>Dia ${dateFormatted(date)}, às ${time}h</p>
+                </div>
+            </div>
+            `
+            activityItem.push(time)
+        }
+    }
+     
+
 })
 
 
