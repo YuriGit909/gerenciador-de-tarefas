@@ -29,14 +29,19 @@ button.addEventListener('click', () => {
     date = document.querySelector('input#idDate').value
     time = document.querySelector('input#idTime').value
 
-    if (activity.length == 0) {
-        window.alert('Preencha o campo com uma atividade')
+    if (activity.length == 0 || date == '' || time == '') {
+        window.alert('Preencha todos os campos para salvar uma atividade')
     } else {
 
         // FUNÇÃO PARA VERIFICAR EXISTÊNCIA DE UMA ATIVIDADE NO MESMO DIA E HORÁRIO DE OUTRA
         let activityExist = activityItem.some(item => {
             return item.date === date && item.time === time
         })
+
+        // CONDIÇÃO PARA REMOVER O ELEMENTO "p" COM O AVISO DE "Nenhuma atividade cadastrada."
+        if (remove.parentNode) {
+            remove.parentNode.removeChild(remove)
+        }
 
         // VERIFICA SE A ATIVIDADE EXISTE CHAMANDO A FUNÇÃO activityExist()
         if(activityExist){
@@ -51,9 +56,9 @@ button.addEventListener('click', () => {
             })
 
             // EXIBIÇÃO DOS DADOS 
-            // ADICIONAR FUNÇÃO PARA REMOVER O "p" DO HTML
             activityList.innerHTML += `
             <div id='itemList'>
+            <input type='checkbox'>
                 <p>${activity}</p>
                 <div id='dateMobile'>
                     <p>${dateFormatted(date)} <br> às ${time}h</p>
@@ -65,8 +70,6 @@ button.addEventListener('click', () => {
             `
         }
     }
-     
-
 })
 
 
