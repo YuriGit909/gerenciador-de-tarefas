@@ -55,10 +55,14 @@ button.addEventListener('click', () => {
                 time: time,
             })
 
+            let optionList = document.createElement('input')
+            optionList.setAttribute('type', 'checkbox')
+            optionList.setAttribute('class', 'optionList')
+
             // EXIBIÇÃO DOS DADOS 
             activityList.innerHTML += `
             <div id='itemList'>
-            <input type='checkbox'>
+            ${optionList}
                 <p>${activity}</p>
                 <div id='dateMobile'>
                     <p>${dateFormatted(date)} <br> às ${time}h</p>
