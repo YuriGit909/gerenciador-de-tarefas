@@ -113,5 +113,28 @@ section#activities > h1 {
 }
 
 section#activityList p {
-    color: var(--zinc-500);
+    color: var(--zinc-400);
+}
+
+section#activityList #pActivity {
+  font-size: 16px;
+  color: var(--zinc-100);
+}
+
+#itemList {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background-color: var(--zinc-900);
+  border-radius: 12px;
+  padding: 8px 16px;
+}
+
+#dateMobile {
+  text-align: right;
+}
+
+#datePC {
+  display: none;
 }
