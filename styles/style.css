@@ -119,16 +119,26 @@ section#activityList p {
 section#activityList #pActivity {
   font-size: 16px;
   color: var(--zinc-100);
+  width: 100%;
 }
 
 #itemList {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   width: 100%;
   background-color: var(--zinc-900);
   border-radius: 12px;
   padding: 8px 16px;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+#notActive {
+  display: block;
+}
+
+#active {
+  display: none;
 }
 
 #dateMobile {

@@ -5,9 +5,10 @@ let remove = document.querySelector('p#pRemove')
 let activityItem = []
 
 // FUNÇÃO PARA FORMATAR DATA PARA O FORMATO DD/MM/AAAA
+// O "+ 1" UTILIZADO É PARA UMA DEFINIÇÃO CORRETA DE DIA E MÊS (POIS A CONTAGEM INICIA EM 0)
 let dateFormatted = (data) => {
     let dateObject = new Date(data)
-    let day = (dateObject.getDate()).toString().padStart(2, '0')
+    let day = (dateObject.getDate() + 1).toString().padStart(2, '0')
     let month = (dateObject.getMonth() + 1).toString().padStart(2, '0')
     let year = dateObject.getFullYear()
     return `${day}/${month}/${year}`
@@ -37,7 +38,18 @@ button.addEventListener('click', () => {
         } else {
             // CRIA O CHECKBOX
             let inputCheck = document.createElement('input')
+            inputCheck.id = 'checkbox'
             inputCheck.type = 'checkbox'
+
+            inputCheck.addEventListener('change', () => {
+                if(inputCheck.checked === true) {
+                    notCheck.style.display = 'none'
+                    check.style.display = 'block'
+                } else {
+                    notCheck.style.display = 'block'
+                    check.style.display = 'none'
+                }
+            })
 
             // JOGA OS DADOS DE ENTRADA EM UM OBJETO QUE ESTÁ CONTIDO NO ARRAY
             activityItem.push({
@@ -51,6 +63,18 @@ button.addEventListener('click', () => {
             let divItem = document.createElement('div')
             divItem.id = 'itemList'
             divItem.appendChild(inputCheck)
+
+            let notCheck = document.createElement('img')
+            notCheck.src = './icons/circle-dashed.svg'
+            notCheck.className = 'circleIcon'
+            notCheck.id = 'notActive'
+            divItem.appendChild(notCheck)
+            
+            let check = document.createElement('img')
+            check.src = './icons/circle-check.svg'
+            check.className = 'circleIcon'
+            check.id = 'active'
+            divItem.appendChild(check)
 
             let pActivity = document.createElement('p')
             pActivity.textContent = activity
