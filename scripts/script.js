@@ -9,7 +9,7 @@ let activityItem = []
 let dateFormatted = (data) => {
     let dateObject = new Date(data)
     let day = (dateObject.getDate() + 1).toString().padStart(2, '0')
-    let month = (dateObject.getMonth() + 1).toString().padStart(2, '0')
+    let month = (dateObject.getMonth()).toString().padStart(2, '0')
     let year = dateObject.getFullYear()
     return `${day}/${month}/${year}`
 }
