@@ -123,6 +123,7 @@ section#activityList #pActivity {
 }
 
 #itemList {
+  position: relative;
   display: flex;
   align-items: center;
   width: 100%;
@@ -131,6 +132,13 @@ section#activityList #pActivity {
   padding: 8px 16px;
   gap: 10px;
   margin-bottom: 10px;
+}
+
+#checkbox {
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  inset: 0;
 }
 
 #notActive {
@@ -147,4 +155,35 @@ section#activityList #pActivity {
 
 #datePC {
   display: none;
+}
+
+@media screen and (min-width: 1000px) {
+  main {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 32px;
+    padding: 40px 160px;
+  }
+
+  section#activities > h1 {
+    text-align: left;
+    font-size: 32px;
+    margin: 0 0 24px 0;
+  }
+
+  #activities {
+    width: 100%;
+  }
+
+  section#activityList #pActivity {
+    width: 68%;
+  }
+
+  #dateMobile {
+    display: none;
+  }
+
+  #datePC {
+    display: block;
+  }
 }

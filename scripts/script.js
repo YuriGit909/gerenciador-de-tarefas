@@ -45,9 +45,13 @@ button.addEventListener('click', () => {
                 if(inputCheck.checked === true) {
                     notCheck.style.display = 'none'
                     check.style.display = 'block'
+                    pActivity.style.textDecoration = 'line-through'
+                    pActivity.style.color = '#71717A'
                 } else {
                     notCheck.style.display = 'block'
                     check.style.display = 'none'
+                    pActivity.style.textDecoration = 'none'
+                    pActivity.style.color = '#F4F4F5'
                 }
             })
 
